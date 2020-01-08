@@ -41,7 +41,7 @@
                                     </div>
                                 </div>
                                 <div class="input-field col s12">
-                                    <input id="steam-api-key" type="text" placeholder="Your Steam API Key"/>
+                                    <input id="steam-api-key" type="password" placeholder="Your Steam API Key"/>
                                     <label for="steam-api-key">Steam API Key</label>
                                     <a class="secondary-text" href="http://steamcommunity.com/dev/apikey" target="_blank" style="text-decoration: underline;">Click here to get your Steam API key</a>
                                 </div>
@@ -59,7 +59,7 @@
                                     <div class="collapsible-header green darken-2">Radiant</div>
                                 </li>
                                 <li v-for="player in players" class="player">
-                                    <div class="collapsible-header primary" :class="[player.status == 15 ? '' : 'active']"><img class="circle" :src="player.user.avatarmedium"/>{{ player.user.personaname }} <a class="secondary-text" :href="player.user.profileurl" target="_blank">[Steam]</a> <a class="secondary-text" :href="'http://www.dotabuff.com/players/' + player.accountId" target="_blank">[Dotabuff]</a> <a class="secondary-text" :href="'http://opendota.com/players/' + player.accountId" target="_blank">[OpenDota]</a> <span class="material-icons">person</span> {{ player.solo_mmr }} <span class="material-icons">people</span> {{ player.party_mmr }} <span class="material-icons">help</span> {{ player.estimated_mmr }}</div>
+                                    <div class="collapsible-header primary" :class="[player.status == 15 ? '' : 'active']"><img class="circle" :src="player.user.avatarmedium"/>{{ player.user.personaname }} <a class="secondary-text" :href="player.user.profileurl" target="_blank">[Steam]</a> <a class="secondary-text" :href="'http://www.dotabuff.com/players/' + player.accountId" target="_blank">[Dotabuff]</a> <a class="secondary-text" :href="'http://opendota.com/players/' + player.accountId" target="_blank">[OpenDota]</a> </a> <a class="secondary-text" :href="'https://stratz.com/en-us/player/' + player.accountId" target="_blank">[STRATZ]</a> <span class="material-icons">person</span> {{ player.solo_mmr }} <span class="material-icons">people</span> {{ player.party_mmr }} <span class="material-icons">help</span> {{ player.estimated_mmr }}</div>
                                     <div class="collapsible-body">
                                         <div v-for="hero in player.heroes" :class="[hero.match_id === undefined ? 'hidden' : '']">
                                             <a class="white-text" :href="'http://www.dotabuff.com/matches/' + hero.match_id" target="_blank">
@@ -80,7 +80,7 @@
                                     <div class="collapsible-header materialize-red darken-4">Dire</div>
                                 </li>
                                 <li v-for="player in players" class="player">
-                                    <div class="collapsible-header primary" :class="[player.status == 15 ? '' : 'active']"><img class="circle" :src="player.user.avatarmedium"/>{{ player.user.personaname }} <a class="secondary-text" :href="player.user.profileurl" target="_blank">[Steam]</a> <a class="secondary-text" :href="'http://www.dotabuff.com/players/' + player.accountId" target="_blank">[Dotabuff]</a> <a class="secondary-text" :href="'http://opendota.com/players/' + player.accountId" target="_blank">[OpenDota]</a> <span class="material-icons">person</span> {{ player.solo_mmr }} <span class="material-icons">people</span> {{ player.party_mmr }} <span class="material-icons">help</span> {{ player.estimated_mmr }}</div>
+                                    <div class="collapsible-header primary" :class="[player.status == 15 ? '' : 'active']"><img class="circle" :src="player.user.avatarmedium"/>{{ player.user.personaname }} <a class="secondary-text" :href="player.user.profileurl" target="_blank">[Steam]</a> <a class="secondary-text" :href="'http://www.dotabuff.com/players/' + player.accountId" target="_blank">[Dotabuff]</a> <a class="secondary-text" :href="'http://opendota.com/players/' + player.accountId" target="_blank">[OpenDota]</a> </a> <a class="secondary-text" :href="'https://stratz.com/en-us/player/' + player.accountId" target="_blank">[STRATZ]</a><span class="material-icons">person</span> {{ player.solo_mmr }} <span class="material-icons">people</span> {{ player.party_mmr }} <span class="material-icons">help</span> {{ player.estimated_mmr }}</div>
                                     <div class="collapsible-body">
                                         <div v-for="hero in player.heroes" :class="[hero.match_id === undefined ? 'hidden' : '']">
                                             <a class="white-text" :href="'http://www.dotabuff.com/matches/' + hero.match_id" target="_blank">
@@ -122,9 +122,9 @@
                             </div>
                             <br/>
                             <ul>
-                                <li>Press <strong>Insert</strong> to start Roshan/Aegis timer (Press <strong>CmdOrCtrl+Alt+Insert</strong> to clear both Roshan/Aegis timers)</li>
-                                <li>Press <strong>Alt+Insert</strong> to only start Roshan timer</li>
-                                <li>Press <strong>Home</strong> to only start Aegis Timer (Press <strong>CmdOrCtrl+Alt+Home</strong> to clear timer)</li>
+                                <li>Press <strong style="color:#ff0000">Insert</strong> to start Roshan/Aegis timer (Press <strong style="color:#ff0000">CmdOrCtrl+Alt+Insert</strong> to clear both Roshan/Aegis timers)</li>
+                                <li>Press <strong style="color:#ff0000">Alt+Insert</strong> to only start Roshan timer</li>
+                                <li>Press <strong style="color:#ff0000">Home</strong> to only start Aegis Timer (Press <strong style="color:#ff0000">CmdOrCtrl+Alt+Home</strong> to clear timer)</li>
                             </ul>
                         </div>
                         <p class="col s12"></p>
