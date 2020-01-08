@@ -1,3 +1,5 @@
+(function () {'use strict';
+
 const co = require('co');
 const monitor = require('active-window');
 const remote = require('electron').remote;
@@ -48,11 +50,11 @@ window.onbeforeunload = () => {
 };
 
 monitor.getActiveWindow(function(window) {
-    const RoshanAndAegisShortcut = 'Insert';
-    const RoshanShortcut = 'Alt+Insert';
+    const RoshanAndAegisShortcut = 'X';
+    const RoshanShortcut = 'Insert';
     const AegisShortcut = 'Home';
-    const ClearRoshanAndAegisShortcut = 'CmdOrCtrl+Alt+Insert';
-    const ClearAegisShortcut = 'CmdOrCtrl+Alt+Home';
+    const ClearRoshanAndAegisShortcut = 'Alt+X';
+    const ClearAegisShortcut = 'Alt+Home';
     try {
         if (window.app == 'dota2' && !$('#disable-timers').prop('checked')) {
             if (!globalShortcut.isRegistered(RoshanAndAegisShortcut)) {
@@ -180,7 +182,7 @@ function startRoshanTimer(shouldStartAegisTimer) {
         let roshanMaxSpawnTimeHuman = toHHMMSS(roshanMaxSpawnTime);
         let output = '▶ ';
         if (dotaRoshanInterval) {
-            output += '(Reminder) ';
+            output += '() ';//Reminder
             roshanMinSpawnTimeHuman = toHHMMSS(dotaRoshanRespawnTime);
             roshanMaxSpawnTimeHuman = toHHMMSS(dotaRoshanRespawnTime + 180);
             if (!dotaAegisInterval) {
@@ -193,7 +195,7 @@ function startRoshanTimer(shouldStartAegisTimer) {
                 $('#roshan-timer').find('.progressbar-text').text(toHHMMSS(tick, true));
             }).countdown(480);
         }
-        const str = 'Roshan respawn: ' + roshanMinSpawnTimeHuman + ' - ' + roshanMaxSpawnTimeHuman;
+        const str = ':bts_rosh: Roshan respawn: ' + roshanMinSpawnTimeHuman + ' - ' + roshanMaxSpawnTimeHuman + ':bts_rosh:' ;
         output += str;
         dotaRoshanClipboard = str;
         clipboard.writeText(output);
@@ -218,7 +220,7 @@ function startAegisTimer(time, wait) {
         let output = '▶ ';
         let aegisSpawnTime = toHHMMSS(time);
         if (dotaAegisInterval) {
-            output += '(Reminder) ';
+            output += ''; //Reminder
             aegisSpawnTime = toHHMMSS(dotaAegisExpireTime);
         } else {
             dotaAegisExpireTime = time;
@@ -227,7 +229,7 @@ function startAegisTimer(time, wait) {
                 $('#aegis-timer').find('.progressbar-text').text(toHHMMSS(tick, true));
             }).countdown(300);
         }
-        const str = 'Aegis expires: ' + aegisSpawnTime;
+        const str =  ':aegis2015: Aegis expires: ' + aegisSpawnTime + ':aegis2015:';
         output += str;
         dotaAegisClipboard = str;
         if (wait) {
@@ -265,13 +267,13 @@ function onAegisTimerTick() {
         let secondsLeft = dotaAegisExpireTime - dotaGsiClockTime;
         if (secondsLeft == 180) {
             let output = '▶ Aegis expires in 3 minutes.';
-            clipboard.writeText(output);
+           clipboard.writeText(output);
             yield pasteToChatBox();
-        } else if (secondsLeft == 60) {
-            let output = '▶ Aegis expires in 1 minute!';
-            clipboard.writeText(output);
+       } else if (secondsLeft == 60) {
+           let output = '▶ Aegis expires in 1 minute!';
+           clipboard.writeText(output);
             yield pasteToChatBox();
-        } else if (secondsLeft == 0) {
+       } else if (secondsLeft == 0) {
             clearInterval(dotaAegisInterval);
             dotaAegisInterval = null;
             let output = '▶ Aegis expired!';
@@ -341,3 +343,5 @@ function toHHMMSS(number, milliseconds, precision = 0) {
     hours = hours > 0 ? hours+':' : '';
     return hours+minutes+':'+seconds;
 }
+}());
+//# sourceMappingURL=timers.js.map
