@@ -7,9 +7,9 @@ Releases can be found [here](https://github.com/waylaidwanderer/DotaBuddy/releas
 ## Features
 * View public match history of each player when loading into a game, including hero played, win/loss, K/D/A and GPM/XPM
 * Roshan/Aegis timer
-    * Press **Insert** to start Roshan/Aegis timer (Press **CmdOrCtrl+Alt+Insert** to clear both Roshan/Aegis timers)
-    * Press **Alt+Insert** to only start Roshan timer
-    * Press **Home** to only start Aegis Timer (Press **CmdOrCtrl+Alt+Home** to clear Aegis timer)
+    * Press **X** to start Roshan/Aegis timer (Press **Alt+X** to clear both Roshan/Aegis timers)
+    * Press **Insert** to only start Roshan timer
+    * Press **Home** to only start Aegis Timer (Press **Alt+Home** to clear Aegis timer)
     
 If you want to use Roshan/Aegis timer, add a file called `gamestate_integration_dotabuddy.cfg` to `path\to\steamapps\common\dota 2 beta\game\dota\cfg\gamestate_integration` (create `gamestate_integration` folder if it doesn't exist), with the following contents:
 
