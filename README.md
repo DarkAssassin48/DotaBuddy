@@ -2,7 +2,7 @@ DotaBuddy
 =========
 DotaBuddy is a cross-platform, open-source application with helpful features for when you're playing a match of Dota 2.
 
-Releases can be found [here](https://github.com/waylaidwanderer/DotaBuddy/releases).
+Releases can be found [here](https://github.com/DarkAssassin48/DotaBuddy/releases).
 
 ## Features
 * View public match history of each player when loading into a game, including hero played, win/loss, K/D/A and GPM/XPM
