@@ -1,5 +1,3 @@
-(function () {'use strict';
-
 const co = require('co');
 const monitor = require('active-window');
 const remote = require('electron').remote;
@@ -343,5 +341,4 @@ function toHHMMSS(number, milliseconds, precision = 0) {
     hours = hours > 0 ? hours+':' : '';
     return hours+minutes+':'+seconds;
 }
-}());
-//# sourceMappingURL=timers.js.map
+
